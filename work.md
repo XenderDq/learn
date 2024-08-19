@@ -131,8 +131,12 @@ img {
     width: 200px;
     height: auto;
 }
-logo.png
-Logo
+
+learn/
+├── README.md
+├── images/
+│   └── logo.png
+
 
 README.md
 

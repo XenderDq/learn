@@ -98,7 +98,7 @@ my-project/
 ├── css/
 │   └── style.css
 ├── images/
-│   └── logo.png
+│   └── 200.png
 └── README.md
 index.html
 
@@ -112,7 +112,7 @@ index.html
 </head>
 <body>
     <h1>Welcome to My Project</h1>
-    <img src="images/logo.png" alt="Logo">
+    <img src="images/200.png" alt="Logo">
 </body>
 </html>
 css/style.css
@@ -135,7 +135,7 @@ img {
 learn/
 ├── README.md
 ├── images/
-│   └── logo.png
+│   └── 200.png
 
 
 README.md

@@ -131,7 +131,7 @@ img {
     width: 200px;
     height: auto;
 }
-images/logo.png
+logo.png
 Logo
 
 README.md

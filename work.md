@@ -154,13 +154,13 @@ This is a simple project to demonstrate the use of Git and GitHub.
 
 Вы можете скачать заархивированный проект [здесь](https://example.com/my-project.zip).
 
-## Дополнительные ресурсы
+## Установка дополнительных инструментов
 
-Для более глубокого изучения Git и GitHub, вы можете посетить следующие ресурсы:
+Для удобства работы с Git, вы можете установить следующие инструменты:
 
-- [Официальная документация Git](https://git-scm.com/doc)
-- [GitHub Guides](https://guides.github.com/)
+- [GitKraken](https://www.gitkraken.com/)
+- [Sourcetree](https://www.sourcetreeapp.com/)
 
 ---
-
+s
 Надеюсь, эта инструкция поможет вам начать работу с Git и GitHub. Если у вас возникнут вопросы, не стесняйтесь задавать их!

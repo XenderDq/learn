@@ -154,6 +154,13 @@ This is a simple project to demonstrate the use of Git and GitHub.
 
 Вы можете скачать заархивированный проект [здесь](https://example.com/my-project.zip).
 
+## Дополнительные ресурсы
+
+Для более глубокого изучения Git и GitHub, вы можете посетить следующие ресурсы:
+
+- [Официальная документация Git](https://git-scm.com/doc)
+- [GitHub Guides](https://guides.github.com/)
+
 ---
 
 Надеюсь, эта инструкция поможет вам начать работу с Git и GitHub. Если у вас возникнут вопросы, не стесняйтесь задавать их!

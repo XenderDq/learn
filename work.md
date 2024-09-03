@@ -157,6 +157,7 @@ This is a simple project to demonstrate the use of Git and GitHub.
 
 ## Установка дополнительных инструментов
 
+
 Для удобства работы с Git, вы можете установить следующие инструменты:
 
 - [GitKraken](https://www.gitkraken.com/)
@@ -188,6 +189,7 @@ This is a simple project to demonstrate the use of Git and GitHub.
 - Управление контентом.
 - Разработка мобильных приложений.
 
+
 ## Важные команды Git
 
 Несколько важных команд Git, которые помогут вам в работе:
@@ -210,3 +212,4 @@ This is a simple project to demonstrate the use of Git and GitHub.
    git clone https://github.com/ваш-пользователь/ваш-форк.git
 
 Надеюсь, эта инструкция поможет вам начать работу с Git и GitHub. Если у вас возникнут вопросы, не стесняйтесь задавать их!
+git!    

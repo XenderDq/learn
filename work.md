@@ -10,6 +10,11 @@ Git — это система контроля версий, которая по
 После установки Git, настройте ваше имя и email:
 
 
+
+
+
+
+
 * git config --global user.name "Your Name"
 * git config --global user.email "your.email@example.com"
 

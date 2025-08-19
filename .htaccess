@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)$ $1.php [L]
+RewriteRule ^teachers$ pages/teach.php [L]
+RewriteRule ^applicants$ pages/applicants.php [L]
+RewriteRule ^faculty-news$ pages/faculty-news.php [L]
+RewriteRule ^contact$ pages/contacts.php [L]
+RewriteRule ^login$ pages/login.php [L]
+RewriteRule ^apload$ pages/apload.php [L]
+RewriteRule ^download$ pages/student.php [L]
+RewriteRule ^admin$ https://cp.beget.com/main [R=301,L]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^uploads/ - [L] 
+</IfModule>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    ErrorDocument 404 /404.php
+</IfModule>
+

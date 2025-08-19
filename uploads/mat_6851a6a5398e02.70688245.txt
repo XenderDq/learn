@@ -1,0 +1,91 @@
+Необходимо сделать авторизацию.
+текущий код страницы авторизации (pages\login.php):
+ <?php
+    include $_SERVER['DOCUMENT_ROOT'] . '/include/header.php';
+?>
+<main class="login_form">
+            <div class="main_login-text">
+                <div class="form-group">
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" name="username" required placeholder="Введите ваш логин">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" required placeholder="Введите ваш пароль">
+                </div>
+                <button type="submit" class="submit-btn">Войти</button> 
+                    <div class="call_back_text">Забыли пароль?</div>
+            </div>   
+            <div class="hiddent_alert_login" hidden>
+                <span class="alert-icon">🔑</span>
+                <div class="alert-title">Восстановление пароля</div>
+                <div class="alert-content">
+                    Если вы забыли пароль, обратитесь в УИТ. Независимо от того, преподаватель вы или студент.<br><br>
+                    <strong>УИТ находится:</strong><br>
+                    7 корпус, 2 этаж, кабинет 215<br><br>
+                    <strong>Рабочие часы:</strong><br>
+                    Пн-Пт: 9:00-18:00<br>
+                    Сб: 10:00-15:00
+            </div>
+                <button class="alert-close">Понятно</button>
+            </div>
+                <div class="alert-backdrop" hidden></div>      
+    </main>
+    <?php
+    include $_SERVER['DOCUMENT_ROOT'] . '/include/footer.php';
+    ?>
+
+Пример подключения к бд:
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+
+try {
+    $stmt = $pdo->prepare("SELECT full_name, post_code, post, phone_number, email, image_path FROM contacts");
+    $stmt->execute();
+    $contactsA = [];
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $full_name = htmlspecialchars($row['full_name'], ENT_QUOTES, 'UTF-8');
+        $post_code = htmlspecialchars($row['post_code'], ENT_QUOTES, 'UTF-8');
+        $post = htmlspecialchars($row['post'], ENT_QUOTES, 'UTF-8');
+        $phone_number = htmlspecialchars($row['phone_number'], ENT_QUOTES, 'UTF-8');
+        $email = htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8');
+        $image_path = htmlspecialchars($row['image_path'], ENT_QUOTES, 'UTF-8');
+
+        $contactsData = [
+            'full_name' => $full_name,
+            'post_code' => $post_code,
+            'post' => $post,
+            'phone_number' => $phone_number,
+            'email' => $email,
+            'image_path' => $image_path,
+        ];
+
+        $contactsA[$post_code] = $contactsData;
+    }
+} catch (PDOException $e) {
+    error_log("DB Error: " . $e->getMessage());
+    echo "Произошла ошибка при работе с базой данных. Пожалуйста, попробуйте позже.";
+    exit;
+}
+?>
+
+Используемая таблица в бд: users(login, password, name, root)
+
+Необходимо чтобы при успешной авторизации, в шапке слово "Войти" менялось на ФИО на значение поля name из таблицы users.
+
+Вот часть кода из шапки:
+
+<div class="header_auth-item dropdown">
+                    <a href="/login" class="header_login-link dropdown-toggle" id="loginDropdown" aria-haspopup="true" aria-expanded="false">Саркисян Д.А.</a>
+                    <div class="dropdown-menu" aria-labelledby="loginDropdown">
+                        <a class="dropdown-item" href="/apload">Загрузить материал</a>
+                        <a class="dropdown-item" href="/download">Скачать материал</a>
+                        <a class="dropdown-item" href="/logout">Выйти</a>
+                    </div>
+                </div>
+
+необходимо добавить на страницы student.php и apload.php условия:
+student.php - может открыть и stud(значение поля root), и prepod(значение поля root), неавторизованный пользователь не может открыть. его будет сразу перенаправлять на главную страницу(редирект на главную страницу если он не вошел в систему).
+apload.php - может открыть prepod(значение поля root), неавторизованный пользователь не может открыть. его будет сразу перенаправлять на главную страницу(редирект на главную страницу если он не вошел в систему).
+ajax и остальная логика будет находится в logic\login.php
